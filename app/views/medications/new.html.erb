@@ -1,0 +1,58 @@
+<%= render "shared/header" %>
+<p>お薬登録ページ</p>
+
+<%= form_with model: @total_info, url: medications_path, local: true do |f| %>
+
+<%= render 'shared/error_messages', model: f.object %>
+
+  <div class='input-birth-wrap'>
+      <%= raw sprintf(
+                  f.date_select(
+                    :date,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: (Time.now.year - 5),
+                    end_year: (Time.now.year),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+      </div>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          病院名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :hospital_name, class:"items-text", id:"item-info", placeholder:"病院名"  ,maxlength:"40" %>
+      </div>
+    </div>
+    <div class="new-items">
+      <div id="medications">
+        <div class="medication-fields">
+          <div class="form-group">
+            <%= f.label :medicine_name, '薬名' %>
+            <%= f.text_field :medicine_name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :timing, '飲むタイミング' %>
+            <%= f.text_field :timing, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :individual, '個数' %>
+            <%= f.text_field :individual, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :days_supply, '何日分' %>
+            <%= f.text_field :days_supply, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :notes, '備考' %>
+            <%= f.text_area :notes, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+     <div class="sell-btn-contents">
+        <%= f.submit "登録する" ,class:"sell-btn" %>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+  <% end %>

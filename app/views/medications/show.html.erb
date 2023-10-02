@@ -1,35 +1,37 @@
 <%= render "shared/header" %>
 <% @medications.each do |medication|%>
 <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-item">日付</th>
-          <td class="detail-value"><%= medication.date_hospital.date %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">病院名</th>
-          <td class="detail-value"><%= medication.date_hospital.hospital_name %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">薬名</th>
-          <td class="detail-value"><%= medication.medicine_name %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">タイミング</th>
-          <td class="detail-value"><%= medication.timing %></td>
-        </tr>
-         <tr>
-          <th class="detail-item">個数</th>
-          <td class="detail-value"><%= medication.individual %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">何日分</th>
-          <td class="detail-value"><%= medication.days_supply %></td>
-        </tr>
-         <tr>
-          <th class="detail-item">備考</th>
-          <td class="detail-value"><%= medication.notes %></td>
-        </tr>
-      </tbody>
-    </table>
-    <% end %>
+  <tbody>
+    <tr>
+      <th class="detail-item">日付</th>
+      <td class="detail-value"><%= medication.date_hospital.date %></td>
+    </tr>
+    <tr>
+      <th class="detail-item">病院名</th>
+      <td class="detail-value"><%= medication.date_hospital.hospital_name %></td>
+    </tr>
+    <tr>
+      <th class="detail-item">薬名</th>
+      <td class="detail-value"><%= medication.medicine_name %></td>
+    </tr>
+    <tr>
+      <th class="detail-item">タイミング</th>
+      <td class="detail-value"><%= medication.timing %></td>
+    </tr>
+      <tr>
+      <th class="detail-item">個数</th>
+      <td class="detail-value"><%= medication.individual %></td>
+    </tr>
+    <tr>
+      <th class="detail-item">何日分</th>
+      <td class="detail-value"><%= medication.days_supply %></td>
+    </tr>
+      <tr>
+      <th class="detail-item">備考</th>
+      <td class="detail-value"><%= medication.notes %></td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
+
+<%= link_to "編集", edit_date_hospital_medication_path(@date_hospital, date_hospital_id: @date_hospital.id), class: "item-red-btn" %>

@@ -1,5 +1,6 @@
 class DateHospitalsController < ApplicationController
   def index
+    @date_hospitals = DateHospital.includes(:user).order('date DESC, hospital_name')
   end
 
   def new

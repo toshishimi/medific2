@@ -17,6 +17,14 @@ class DateHospitalsController < ApplicationController
     end
   end
 
+  def destroy
+    date_hospital = DateHospital.find(params[:id])
+    if date_hospital.user_id == current_user.id
+      date_hospital.destroy
+    end
+    redirect_to root_path  
+  end
+ 
   private
 
   def total_info_params

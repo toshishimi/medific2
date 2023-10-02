@@ -1,7 +1,18 @@
 <%= render "shared/header" %>
 
 <h1>お薬一覧</h1>
-
+  <%# お薬一覧 %>
+  <div class='item-contents'>
+    <ul class='item-lists'>
+        <% @date_hospitals.each do |date_hospital| %> 
+          <li class='list'>
+          <%= link_to "#{date_hospital.date}／#{date_hospital.hospital_name}", 
+                        date_hospital_medication_path(date_hospital, date_hospital_id: date_hospital.id) %>
+          </li>
+        <% end %>  
+    </ul>
+  </div>
+  <%# /お薬一覧 %>
 
 
 

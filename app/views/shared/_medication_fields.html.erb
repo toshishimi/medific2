@@ -1,35 +1,32 @@
 
-
-  <div class="form-group">
-            <%= link_to '削除', '#', class: 'remove-medication-field btn btn-danger' %>
-          </div>
-
 <div id="medications">
-        <%= f.fields_for :medications do |medication_form| %>
-          <%= render 'shared/medication_fields', f: medication_form %>
-        <% end %>
-      </div>
-      <div class="form-group">
-        <%= button_to '薬を追加', '#', id: 'add-medication', class: 'btn btn-primary' %>
-      </div>
-
-      <script>
-        $(document).ready(function() {
-          // 薬のフォームを動的に追加する
-          $('#add-medication').click(function(e) {
-            e.preventDefault();
-            const medications = $('#medications');
-            const new_medication = $('.medication-fields:first').clone();
-            new_medication.find('input[type="text"]').val(''); // フォームをクリア
-            medications.append(new_medication);
-          });
-
-          // 薬のフォームを動的に削除する
-          $('#medications').on('click', '.remove-medication-field', function(e) {
-            e.preventDefault();
-            $(this).closest('.medication-fields').remove();
-          });
-        });
-      </script>
+  <div class="medication-fields">
+    <div class="form-group">
+      <%= f.label :medicine_name, '薬名' %>
+      <%= f.text_field :medicine_name, class: 'form-control' %>
     </div>
-  
+    <div class="form-group">
+      <%= f.label :timing, '飲むタイミング' %>
+      <%= f.text_field :timing, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :individual, '個数' %>
+      <%= f.text_field :individual, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :days_supply, '何日分' %>
+      <%= f.text_field :days_supply, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :notes, '備考' %>
+      <%= f.text_area :notes, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= link_to '薬を削除', '#', class: 'remove-medication-field btn btn-danger' %>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <%= button_to '薬を追加', '#', id: 'add-medication', class: 'btn btn-primary' %>
+</div>
+

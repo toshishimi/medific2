@@ -28,9 +28,11 @@ class DateHospitalsController < ApplicationController
   private
 
   def total_info_params
-    params.require(:total_info)
-    .permit(:date, :hospital_name, :medicine_name, :timing, :individual, :days_supply, :notes)
-    .merge(user_id: current_user.id)
+    params.require(:total_info).permit(
+      :date, :hospital_name, :user_id,
+      medications: [:medicine_name, :timing, :individual, :days_supply, :notes]
+    ).merge(user_id: current_user.id)
   end
+  
 
 end

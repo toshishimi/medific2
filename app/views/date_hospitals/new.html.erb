@@ -1,58 +1,61 @@
 <%= render "shared/header" %>
 <p>お薬登録ページ</p>
 
-<%= form_with model: @total_info, url: date_hospitals_path, local: true do |f| %>
+<%= form_with model: @total_info , url: date_hospitals_path, local: true do |f| %>
 
-<%= render 'shared/error_messages', model: f.object %>
+  <%= render 'shared/error_messages', model: f.object %>
 
-  <div class='input-birth-wrap'>
+    <div class='input-birth-wrap'>
       <%= raw sprintf(
-                  f.date_select(
-                    :date,
-                    class:'select-birth',
-                    id:"birth-date",
-                    use_month_numbers: true,
-                    prompt:'--',
-                    start_year: (Time.now.year - 5),
-                    end_year: (Time.now.year),
-                    date_separator: '%s'),
-                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-      </div>
-      <div class="items-explain">
-        <div class="weight-bold-text">
-          病院名
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :hospital_name, class:"items-text", id:"item-info", placeholder:"病院名"  ,maxlength:"40" %>
-      </div>
+                      f.date_select(
+                        :date,
+                        class:'select-birth',
+                        id:"birth-date",
+                        use_month_numbers: true,
+                        prompt:'--',
+                        start_year: (Time.now.year - 5),
+                        end_year: (Time.now.year),
+                        date_separator: '%s'),
+                      "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
     </div>
-    <div class="new-items">
-      <div id="medications">
-        <div class="medication-fields">
-          <div class="form-group">
-            <%= f.label :medicine_name, '薬名' %>
-            <%= f.text_field :medicine_name, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :timing, '飲むタイミング' %>
-            <%= f.text_field :timing, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :individual, '個数' %>
-            <%= f.text_field :individual, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :days_supply, '何日分' %>
-            <%= f.text_field :days_supply, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :notes, '備考' %>
-            <%= f.text_area :notes, class: 'form-control' %>
-          </div>
+    <div class="items-explain">
+      <div class="weight-bold-text">
+        病院名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :hospital_name, class:"items-text", id:"item-info", placeholder:"病院名"  ,maxlength:"40" %>
+    </div>
+    <!--ボタンをクリックしたらJavascriptファイル内の関数addForm()を実行する-->
+    <div class="bt_addForm">
+      <button type="button" id="add_form" class="add_form">薬を追加</button>
+    </div>
+    <fieldset>
+      <legend>薬の情報</legend>
+      <div class="medication-fields", id="medications" >
+        <div class="form-group">
+          <%= f.label :medicine_name, '薬名' %>
+          <%= f.text_field :medicine_name, name: "total_info[medications][][medicine_name]", class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :timing, '飲むタイミング' %>
+          <%= f.text_field :timing, name: "total_info[medications][][timing]", class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :individual, '個数' %>
+          <%= f.text_field :individual, name: "total_info[medications][][individual]", class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :days_supply, '何日分' %>
+          <%= f.text_field :days_supply, name: "total_info[medications][][days_supply]", class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :notes, '備考' %>
+          <%= f.text_area :notes, name: "total_info[medications][][notes]", class: 'form-control' %>
         </div>
       </div>
-     <div class="sell-btn-contents">
-        <%= f.submit "登録する" ,class:"sell-btn" %>
-        <%=link_to 'もどる', root_path, class:"back-btn" %>
-      </div>
-  <% end %>
+    </fieldset>
+    <div class="sell-btn-contents">
+      <%= f.submit "登録する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %> 
+    </div>
+<% end %>

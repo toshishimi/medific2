@@ -13,19 +13,19 @@ RSpec.describe TotalInfo, type: :model do
         expect(@total_info).to be_valid
       end
       it "タイミングが空欄でも登録できる" do
-        @total_info.timing = nil
+        @total_info.medications[0].timing = nil
         expect(@total_info).to be_valid
       end
       it "回数が空欄でも登録できる" do
-        @total_info.individual = nil
+        @total_info.medications[0].individual = nil
         expect(@total_info).to be_valid
       end
       it "何日分が空欄でも登録できる" do
-        @total_info.days_supply = nil
+        @total_info.medications[0].days_supply = nil
         expect(@total_info).to be_valid
       end
       it "備考が空欄でも登録できる" do
-        @total_info.notes = nil
+        @total_info.medications[0].notes = nil
         expect(@total_info).to be_valid
       end
     end
@@ -42,9 +42,9 @@ RSpec.describe TotalInfo, type: :model do
         expect(@total_info.errors.full_messages).to include("Hospital name can't be blank")
       end
       it "薬名が空だと登録できない" do
-        @total_info.medicine_name = nil
+        @total_info.medications[0].medicine_name = nil
         @total_info.valid?
-        expect(@total_info.errors.full_messages).to include("Medicine name can't be blank")
+        expect(@total_info.errors.full_messages).to include("Medications[0][medicine name] can't be blank")
       end
       it "user_idが空だと登録できない" do
         @total_info.user_id = nil

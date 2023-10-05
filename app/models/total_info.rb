@@ -2,21 +2,50 @@ class TotalInfo
   include ActiveModel::Model
   include ActiveRecord::AttributeAssignment
 
-  attr_accessor :date, :hospital_name, :user_id, :medicine_name, :timing, :individual, :days_supply, :notes
+  attr_accessor :date, :hospital_name, :user_id, :medicine_name, :timing, :individual, :days_supply, :notes, :medications
 
   with_options presence: true do
     validates :date
     validates :hospital_name
-    validates :medicine_name
     validates :user_id
   end
 
-   
+  validate :validate_medications
+
+
+  def validate_medications
+    if medications.present?
+      medications.each_with_index do |medication, index|
+        unless medication["medicine_name"].present?
+          errors.add("medications[#{index}][medicine_name]", "can't be blank")
+        end
+      end
+    end
+  end
+
+
+  def initialize(attributes = {})
+    super
+    @medications ||= [] # medications属性を初期化
+  end
+
+  def add_medication(medication_info)
+    @medications << medication_info
+  end
+ 
+
   def save
     date_hospital = DateHospital.create(date: date, hospital_name: hospital_name, user_id: user_id)
-    Medication.create(
-      medicine_name: medicine_name, timing: timing, individual: individual, days_supply: days_supply, notes: notes, date_hospital_id: date_hospital.id
-    )
+    @medications.each do |medication_info|
+      Medication.create(
+        medicine_name: medication_info[:medicine_name],
+        timing: medication_info[:timing],
+        individual: medication_info[:individual],
+        days_supply: medication_info[:days_supply],
+        notes: medication_info[:notes],
+        date_hospital_id: date_hospital.id
+      )
+    end
   end
   
 end

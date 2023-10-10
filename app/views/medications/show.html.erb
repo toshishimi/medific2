@@ -1,15 +1,16 @@
 <%= render "shared/header" %>
+
+<div>
+  <div class="detail-item">日付</div>
+  <a class="detail-value"><%= @date_hospital.date %></a>
+</div>
+<div>
+  <div class="detail-item">病院名</div>
+  <a class="detail-value"><%= @date_hospital.hospital_name %></a>
+</div>
 <% @medications.each do |medication|%>
 <table class="detail-table">
   <tbody>
-    <tr>
-      <th class="detail-item">日付</th>
-      <td class="detail-value"><%= medication.date_hospital.date %></td>
-    </tr>
-    <tr>
-      <th class="detail-item">病院名</th>
-      <td class="detail-value"><%= medication.date_hospital.hospital_name %></td>
-    </tr>
     <tr>
       <th class="detail-item">薬名</th>
       <td class="detail-value"><%= medication.medicine_name %></td>

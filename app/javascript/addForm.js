@@ -16,13 +16,13 @@ function addForm() {
   original.parentNode.insertBefore(cloned, original.nextSibling);
   medicationFormCount++; // カウンターをインクリメント
 
-// 新しい削除ボタンを追加
-const newRemoveButton = document.createElement("button");
-newRemoveButton.type = "button";
-newRemoveButton.textContent = "削除する";
-newRemoveButton.classList.add("remove_form");
-newRemoveButton.addEventListener("click", () => removeForm(cloned));
-cloned.appendChild(newRemoveButton);
+  // 新しい削除ボタンを追加
+  const newRemoveButton = document.createElement("button");
+  newRemoveButton.type = "button";
+  newRemoveButton.textContent = "削除する";
+  newRemoveButton.classList.add("remove_form");
+  newRemoveButton.addEventListener("click", () => removeForm(cloned));
+  cloned.appendChild(newRemoveButton);
 }
 
 function removeForm(form) {

@@ -26,8 +26,9 @@ class TotalInfo
 
   def initialize(attributes = {})
     super
-    @medications ||= [] # medications属性を初期化
+    @medications = attributes[:medications] || [] # medications属性を初期化
   end
+  
 
   def add_medication(medication_info)
     @medications << medication_info

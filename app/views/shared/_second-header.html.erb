@@ -1,12 +1,22 @@
-<header class='second-header'>
-  <div class='search-bar-contents'>
-
+<header>
+  <div class="px-3 py-2 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
-  <div class='nav'>
-    <ul class='lists-left'>
-    </ul>
-    <ul class='lists-right'>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-    </ul>
+  <div class="px-3 py-2 border-bottom mb-3">
+    <div class="container d-flex flex-wrap justify-content-center">
+      <div class="text-end">
+        <% if current_page?(new_user_registration_path) %>
+          <%= link_to 'ログイン', new_user_session_path, class: "btn btn-light text-dark me-2" %>
+        <% else %>
+          <%= link_to '新規登録', new_user_registration_path, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </header>

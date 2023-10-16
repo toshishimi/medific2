@@ -1,19 +1,19 @@
 <%= render "shared/header" %>
 
-<h1>お薬一覧</h1>
+<h2 class="text-center">お薬一覧</h2>
+
+<div class='container'>
   <%# お薬一覧 %>
-  <div class='item-contents'>
-    <ul class='item-lists'>
-        <% @date_hospitals.each do |date_hospital| %> 
-          <li class='list'>
-          <%= link_to "#{date_hospital.date}／#{date_hospital.hospital_name}", 
-                        date_hospital_medication_path(date_hospital, date_hospital_id: date_hospital.id) %>
-          </li>
-        <% end %>  
-    </ul>
+  <div class="list-group">
+    <% @date_hospitals.each do |date_hospital| %> 
+      <%= link_to "#{date_hospital.date}／#{date_hospital.hospital_name}", 
+                    date_hospital_medication_path(date_hospital, date_hospital_id: date_hospital.id),
+                    class: "list-group-item list-group-item-action text-center" %>
+    <% end %>  
   </div>
   <%# /お薬一覧 %>
 
 
 
-<%= link_to '登録', new_date_hospital_path %>
+<%= link_to '登録', new_date_hospital_path, class:"btn btn-lg btn-primary" %>
+</div> 

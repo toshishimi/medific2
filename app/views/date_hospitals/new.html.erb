@@ -1,10 +1,12 @@
 <%= render "shared/header" %>
-<p>お薬登録ページ</p>
+
+<h2 class="text-center">お薬登録ページ</h2>
 
 <%= form_with model: @total_info , url: date_hospitals_path, local: true do |f| %>
 
   <%= render 'shared/error_messages', model: f.object %>
 
+  <div class="container">
     <div class='input-birth-wrap'>
       <%= raw sprintf(
                       f.date_select(
@@ -27,35 +29,36 @@
     </div>
     <!--ボタンをクリックしたらJavascriptファイル内の関数addForm()を実行する-->
     <div class="bt_addForm">
-      <button type="button" id="add_form" class="add_form">薬を追加</button>
+      <button type="button" id="add_form" class="add_form btn btn-primary">薬を追加</button>
     </div>
     <fieldset>
       <legend>薬の情報</legend>
       <div class="medication-fields", id="medications" >
-        <div class="form-group">
+        <div class=>
           <%= f.label :medicine_name, '薬名' %>
           <%= f.text_field :medicine_name, name: "total_info[medications][][medicine_name]", class: 'form-control' %>
         </div>
-        <div class="form-group">
+        <div class=>
           <%= f.label :timing, '飲むタイミング' %>
           <%= f.text_field :timing, name: "total_info[medications][][timing]", class: 'form-control' %>
         </div>
-        <div class="form-group">
+        <div class=>
           <%= f.label :individual, '個数' %>
           <%= f.text_field :individual, name: "total_info[medications][][individual]", class: 'form-control' %>
         </div>
-        <div class="form-group">
+        <div class=>
           <%= f.label :days_supply, '何日分' %>
           <%= f.text_field :days_supply, name: "total_info[medications][][days_supply]", class: 'form-control' %>
         </div>
-        <div class="form-group">
+        <div class=>
           <%= f.label :notes, '備考' %>
           <%= f.text_area :notes, name: "total_info[medications][][notes]", class: 'form-control' %>
         </div>
       </div>
     </fieldset>
     <div class="sell-btn-contents">
-      <%= f.submit "登録する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %> 
+      <%= f.submit "登録する" ,class:"btn btn-primary" %>
+      <%=link_to 'もどる', root_path, class:"btn btn-light text-dark me-2" %> 
     </div>
+  </div> 
 <% end %>

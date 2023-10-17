@@ -1,38 +1,57 @@
 <%= render "shared/header" %>
 
-<div>
-  <div class="detail-item">日付</div>
-  <a class="detail-value"><%= @date_hospital.date %></a>
+<div class="container">
+  <div class="row">
+    <div class="col-xl-3 fs-5 fw-bold">
+      <p>日付：<%= @date_hospital.date %></p>
+    </div>
+    <div class="col-xl-3 fs-5 fw-bold">
+      <p>病院名：<%= @date_hospital.hospital_name %></p>
+    </div>
+  </div>
 </div>
-<div>
-  <div class="detail-item">病院名</div>
-  <a class="detail-value"><%= @date_hospital.hospital_name %></a>
-</div>
-<% @medications.each do |medication|%>
-<table class="detail-table">
-  <tbody>
-    <tr>
-      <th class="detail-item">薬名</th>
-      <td class="detail-value"><%= medication.medicine_name %></td>
-    </tr>
-    <tr>
-      <th class="detail-item">タイミング</th>
-      <td class="detail-value"><%= medication.timing %></td>
-    </tr>
-      <tr>
-      <th class="detail-item">個数</th>
-      <td class="detail-value"><%= medication.individual %></td>
-    </tr>
-    <tr>
-      <th class="detail-item">何日分</th>
-      <td class="detail-value"><%= medication.days_supply %></td>
-    </tr>
-      <tr>
-      <th class="detail-item">備考</th>
-      <td class="detail-value"><%= medication.notes %></td>
-    </tr>
-  </tbody>
-</table>
-<% end %>
 
-<%= link_to "編集", edit_date_hospital_medication_path(@date_hospital, date_hospital_id: @date_hospital.id), class: "item-red-btn" %>
+<% @medications.each do |medication|%>
+  <div class="container border border-2 border-dark">
+    <div class="row">
+      <div class="col-1 fw-bold">
+        薬名：
+      </div>
+      <div class="col-8 text-decoration-underline">
+        <%= medication.medicine_name %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-2 fw-bold">
+        <p>タイミング：　</p>
+      </div>
+      <div class="col-2">
+        <p><%= medication.timing %></p>
+      </div>
+      <div class="col-2 fw-bold">
+        <p>個数：　</p>
+      </div>
+      <div class="col-2">
+        <p><%= medication.individual %></p>
+      </div>
+      <div class="col-2 fw-bold">
+        <p>何日分：　</p>
+      </div>
+      <div class="col-2">
+        <p><%= medication.days_supply %></p>
+      </div>
+    </div>
+    <div class="fw-bold">
+      <p>備考：</p>
+    </div>
+    <div >
+      <%= medication.notes %>
+    </div>
+  </div>
+  <br>
+<% end %>
+<br>
+<div class="text-center">
+  <%= link_to "編集", edit_date_hospital_medication_path(@date_hospital, date_hospital_id: @date_hospital.id), class: "w-25 btn btn-primary" %>
+</div>

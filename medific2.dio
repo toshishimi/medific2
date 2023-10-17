@@ -1,11 +1,11 @@
 <mxfile host="65bd71144e">
     <diagram id="Tm5l0OqaVxxOBF3InInZ" name="ページ1">
-        <mxGraphModel dx="510" dy="731" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="722" dy="869" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="2" value="userテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="30" y="10" width="160" height="176" as="geometry"/>
+                    <mxGeometry x="350" y="120" width="160" height="176" as="geometry"/>
                 </mxCell>
                 <mxCell id="3" value="- name" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="2" vertex="1">
                     <mxGeometry y="26" width="160" height="30" as="geometry"/>
@@ -24,19 +24,19 @@
                 </mxCell>
                 <mxCell id="66" value="" style="edgeStyle=none;html=1;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;endSize=20;startSize=20;strokeWidth=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="55" target="14" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="110" y="280" as="sourcePoint"/>
+                        <mxPoint x="430" y="390" as="sourcePoint"/>
                         <Array as="points">
-                            <mxPoint x="110" y="230"/>
+                            <mxPoint x="430" y="340"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="85" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeWidth=1;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;startSize=20;endSize=20;" parent="1" source="32" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="110" y="410" as="targetPoint"/>
+                        <mxPoint x="430" y="520" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="32" value="medicationテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="30" y="500" width="160" height="206" as="geometry"/>
+                    <mxGeometry x="350" y="610" width="160" height="206" as="geometry"/>
                 </mxCell>
                 <mxCell id="34" value="- medicine_name" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="32" vertex="1">
                     <mxGeometry y="26" width="160" height="30" as="geometry"/>
@@ -57,7 +57,7 @@
                     <mxGeometry y="176" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="55" value="date_hospitalテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontColor=#FFFFFF;" parent="1" vertex="1">
-                    <mxGeometry x="30" y="290" width="160" height="116" as="geometry"/>
+                    <mxGeometry x="350" y="400" width="160" height="116" as="geometry"/>
                 </mxCell>
                 <mxCell id="50" value="- date" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontColor=#FFFFFF;" parent="55" vertex="1">
                     <mxGeometry y="26" width="160" height="30" as="geometry"/>

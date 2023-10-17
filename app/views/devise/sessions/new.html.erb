@@ -2,9 +2,9 @@
 <%= render "shared/second-header"%>
 
 <%= form_with model: @user, url: user_session_path, class: "form-signin", local: true do |f| %>
-  <div class="container">
-    <h1 class="h3 mb-3 fw-normal">
-      ご本人情報入力
+  <div class="container w-50">
+    <h1 class="text-center">
+      ログイン画面
     </h1>
 
     <div class="mb-3">
@@ -17,12 +17,14 @@
       <span >必須</span>
       <%= f.email_field :email, class: "form-control", id: "floatingInput", placeholder:"PC・携帯どちらでも可", autofocus: true %>
     </div>
-    
     <div class="mb-3">
       <label class="form-label">パスワード</label>
       <span >必須</span>
       <%= f.password_field :password, class: "form-control", id: "floatingPassword", placeholder:"パスワード" %>
     </div>
-    <%= f.submit "ログイン" ,class:"w-100 btn btn-lg btn-primary" %>
+    <br>
+    <div class="text-center">
+      <%= f.submit "ログイン" ,class:"btn btn-lg btn-primary" %>
+    </div>
   </div>
 <% end %>

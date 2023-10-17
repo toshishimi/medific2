@@ -65,3 +65,4 @@ end
 gem 'devise'
 gem 'pry-rails'
 gem 'jquery-rails'
+gem 'bootstrap', '~> 5.0.2'

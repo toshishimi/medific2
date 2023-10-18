@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 氏名
+        name_kana: 氏名カナ
+        birth_date: 生年月日
+
+  activemodel:
+    attributes:
+      total_info:
+        date: 処方された日
+        hospital_name: 病院名

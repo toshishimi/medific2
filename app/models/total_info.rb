@@ -17,7 +17,7 @@ class TotalInfo
     if medications.present?
       medications.each_with_index do |medication, index|
         unless medication["medicine_name"].present?
-          errors.add("medications[#{index}][medicine_name]", "can't be blank")
+          errors.add("#{index + 1}の薬名", "を入力してください")
         end
       end
     end

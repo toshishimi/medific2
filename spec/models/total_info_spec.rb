@@ -34,22 +34,22 @@ RSpec.describe TotalInfo, type: :model do
       it "薬をもらった日が空だと登録できない" do
         @total_info.date = nil
         @total_info.valid?
-        expect(@total_info.errors.full_messages).to include("Date can't be blank")
+        expect(@total_info.errors.full_messages).to include("処方された日を入力してください")
       end
       it "病院名が空だと登録できない" do
         @total_info.hospital_name = nil
         @total_info.valid?
-        expect(@total_info.errors.full_messages).to include("Hospital name can't be blank")
+        expect(@total_info.errors.full_messages).to include("病院名を入力してください")
       end
       it "薬名が空だと登録できない" do
         @total_info.medications[0].medicine_name = nil
         @total_info.valid?
-        expect(@total_info.errors.full_messages).to include("Medications[0][medicine name] can't be blank")
+        expect(@total_info.errors.full_messages).to include("1の薬名を入力してください")
       end
       it "user_idが空だと登録できない" do
         @total_info.user_id = nil
         @total_info.valid?
-        expect(@total_info.errors.full_messages).to include("User can't be blank")
+        expect(@total_info.errors.full_messages).to include("Userを入力してください")
       end
     end
   end

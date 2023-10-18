@@ -56,7 +56,6 @@ class MedicationsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     medication = Medication.find(params[:id])
       if @date_hospital.user_id == current_user.id
         medication.destroy

@@ -9,7 +9,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
-        <%= f.label :date, '処方された日' %>
+        <%= f.label :date, '処方された日　必須' %>
         <div class='input-group'>
           
           <%= raw sprintf(
@@ -27,7 +27,7 @@
       </div>  
       <div class="col-lg-9">
         <div class="mb-3">
-          <%= f.label :hospital_name, '病院名' %>
+          <%= f.label :hospital_name, '病院名　必須' %>
           <%= f.text_field :hospital_name, class:"form-control", maxlength:"40" %>
         </div>
       </div>
@@ -40,7 +40,7 @@
       <legend>薬の情報</legend>
       <div class="medication-fields", id="medications" >
         <div class="mb-3">
-          <%= f.label :medicine_name, '薬名' %>
+          <%= f.label :medicine_name, '薬名　必須' %>
           <%= f.text_field :medicine_name, name: "total_info[medications][][medicine_name]", class: 'form-control' %>
         </div>
         <div class="row">

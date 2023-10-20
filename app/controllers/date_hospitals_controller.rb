@@ -24,7 +24,30 @@ class DateHospitalsController < ApplicationController
     end
     redirect_to root_path  
   end
- 
+
+  def upload
+    require 'google/cloud/vision'
+    binding.pry
+    keyfile = ENV["GOOGLE_APPLICATION_CREDENTIALS"]
+    project_id = ENV["GOOGLE_CLOUD_PROJECT"]
+    image_annotator_client = Google::Cloud::Vision::ImageAnnotator.new project: project_id, keyfile: keyfile
+
+    image = params[:image].path
+    
+    image_text = (image_annotator_client.document_text_detection image: image).to_s
+
+    @date = image_text[/日付(.{0,3}\d+\.?\d+)/][/\d+\.?\d+/].to_f
+    @hospital_name = image_text[/医療機関名(.+?)(日付|\z)/].strip
+  
+    @data = { date: @date, hospital_name: @hospital_name }
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+
   private
 
   def total_info_params

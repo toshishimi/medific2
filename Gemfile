@@ -67,5 +67,5 @@ gem 'pry-rails'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.0.2'
 gem 'rails-i18n'
-gem "google-cloud-vision"
-gem "google-api-client"
+gem "google-cloud-vision", require: false
+gem "google-api-client", require: false

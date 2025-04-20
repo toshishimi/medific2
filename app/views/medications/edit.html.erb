@@ -32,14 +32,14 @@
         </div>
       </div>
     </div>
+    <legend>薬の情報</legend>
     <!--ボタンをクリックしたらJavascriptファイル内の関数addForm()を実行する-->
     <div class="bt_addForm">
-      <button type="button" id="add_form" class="add_form btn btn-primary">薬を追加</button>
+      <button type="button" id="add-button" class="btn btn-primary">薬を追加</button>
     </div>
-    <fieldset>
-      <legend>薬の情報</legend>
-      <% @medications.each do |medication|%>
-        <div class="medication-fields", id="medications" >
+    <ul id="medication-list">
+    <% @medications.each_with_index do |medication, index| %>
+      <li id="medication<%= index %>">
           <div class="mb-3">
             <%= f.label :medicine_name, '薬名' %>
             <%= f.text_field :medicine_name, name: "total_info[medications][][medicine_name]", class: 'form-control', value: medication.medicine_name %>
@@ -68,10 +68,10 @@
             <%= f.label :notes, '備考' %>
             <%= f.text_area :notes, name: "total_info[medications][][notes]", class: 'form-control', value: medication.notes %>
           </div>
-        </div>
         <%= link_to "削除", date_hospital_medication_path(@date_hospital, medication), method: :delete, class: "btn btn-danger", data: { confirm: "本当に削除してよろしいですか？" } %>
-      <% end %> 
-    </fieldset>
+      </li>
+    <% end %> 
+    </ul>
     <br>
     <%= f.submit "変更する" ,class:"btn btn-primary" %>
     <%= link_to 'もどる', date_hospital_medication_path(@date_hospital, date_hospital_id: @date_hospital.id), class:"btn btn-light text-dark me-2" %>

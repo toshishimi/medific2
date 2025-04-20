@@ -40,12 +40,12 @@
             
             <%= raw sprintf(
                             f.date_select(
-                              :date,
+                              :birth_date,
                               class:'form-select',
                               id:"birth-date",
                               use_month_numbers: true,
                               prompt:'--',
-                              start_year: (Time.now.year - 5),
+                              start_year: 1930,
                               end_year: (Time.now.year),
                               date_separator: '%s'),
                             "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>

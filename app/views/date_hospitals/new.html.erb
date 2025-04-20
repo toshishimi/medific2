@@ -43,13 +43,13 @@
         </div>
       </div>
     </div>
+    <legend>薬の情報</legend>
     <!--ボタンをクリックしたらJavascriptファイル内の関数addForm()を実行する-->
     <div class="bt_addForm">
-      <button type="button" id="add_form" class="add_form btn btn-primary">薬を追加</button>
+      <button type="button" id="add-button" class="btn btn-primary">薬を追加</button>
     </div>
-    <fieldset>
-      <legend>薬の情報</legend>
-      <div class="medication-fields", id="medications" >
+    <ul id="medication-list">
+      <li id="medication0">
         <div class="mb-3">
           <%= f.label :medicine_name, '薬名　必須' %>
           <%= f.text_field :medicine_name, name: "total_info[medications][][medicine_name]", class: 'form-control' %>
@@ -78,8 +78,8 @@
           <%= f.label :notes, '備考' %>
           <%= f.text_area :notes, name: "total_info[medications][][notes]", class: 'form-control' %>
         </div>
-      </div>
-    </fieldset>
+      </li>
+    </ul>
     <br>
     <div class="sell-btn-contents">
       <%= f.submit "登録する" ,class:"btn btn-primary" %>
